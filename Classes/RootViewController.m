@@ -29,18 +29,18 @@
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     NSInteger count = 4;
     for (NSInteger i = 0; i < count; i ++) {
-        
-        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(width * i, 0, self.myScrollView.bounds.size.width, self.myScrollView.bounds.size.height)];
-        UILabel *flagLab = [[UILabel alloc]initWithFrame:CGRectMake(0, 200,view.bounds.size.width, 40)];
-        flagLab.textAlignment = NSTextAlignmentCenter;
-        flagLab.text = [NSString stringWithFormat:@"第%ld页",i + 1];
-        [view addSubview:flagLab];
-        [self.myScrollView addSubview:view];
-        
         if (i == count - 1) {
-            
             TestTableView *tableView = [TestTableView initWithFrame:CGRectMake(width * i, 0, self.myScrollView.bounds.size.width, self.myScrollView.bounds.size.height) style:UITableViewStylePlain];
             [self.myScrollView addSubview:tableView];
+        }
+        else
+        {
+            UIView *view = [[UIView alloc]initWithFrame:CGRectMake(width * i, 0, self.myScrollView.bounds.size.width, self.myScrollView.bounds.size.height)];
+            UILabel *flagLab = [[UILabel alloc]initWithFrame:CGRectMake(0, 200,view.bounds.size.width, 40)];
+            flagLab.textAlignment = NSTextAlignmentCenter;
+            flagLab.text = [NSString stringWithFormat:@"第%ld页",i + 1];
+            [view addSubview:flagLab];
+            [self.myScrollView addSubview:view];
         }
         
     }
